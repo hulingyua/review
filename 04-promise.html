@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function timeout(ms){
+      return new Promise( (res,rej) => {
+        setTimeout(res,ms,a);
+      })
+    }
+
+    const a = 'heheha'
+    //调用
+    timeout(1000).then( (a) => {
+      console.log(a);
+    })
+  </script>
+</body>
+</html>

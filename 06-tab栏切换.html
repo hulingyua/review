@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    span{
+      display: inline-block;
+      text-align: center;
+      width: 80px;
+      height: 30px;
+      border-radius: 5px;
+      padding-top: 5px;
+      cursor: pointer;
+    }
+    active{
+      background-color: skyblue;
+    }
+    content{
+      width: 320px;
+      text-align: center;
+    }
+    .content div{
+      display: none;
+    }
+    .content div:first-child{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cate">
+      <span data-c="spring">春天</span>
+      <span data-c="summer">夏天</span>
+      <span data-c="autom">秋天</span>
+      <span data-c="winter">冬天</span>      
+    </div>
+    <div class="content">
+      <div class="spring">这是春天的内容</div>
+      <div class="summer">这是夏天的内容</div>
+      <div class="autom">这是秋天的内容</div>
+      <div class="winter">这是冬天的内容</div>      
+    </div>
+  </div>
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <script>
+    $(function (){
+      $('span').click(function (){
+        $(this).css('backgroundColor','skyblue').siblings().css('backgroundColor','')
+        var c = this.dataset.c
+        var that = document.getElementsByClassName(c);
+        $(that).show().siblings().hide();
+      })
+    })
+    
+  </script>
+</body>
+</html>

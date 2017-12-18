@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    html,body{
+      height: 100%;
+    }
+    .container{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .btn1,.btn2{
+      width: 100px;
+      height: 30px;
+      border: 1px solid salmon;
+      border-radius: 3px;
+    }
+    .btn-active{
+      width: 80px;
+      height: 30px;
+      border: 1px solid skyblue;
+      border-radius: 3px;
+    }
+    .info{
+      width: 100%;
+      height: 100px;
+      text-align: center;
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      transition: .5s;
+      background-color: lightgreen;
+    }
+    .wrapper{
+      margin-top: 30px;
+    }
+    .close{
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      position: absolute;
+      top: 3px;
+      right: 12px;
+    }
+    .mask{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.3);
+      display: none;
+      z-index: 999;
+      position: relative;
+      padding-top: 350px;
+    }
+    .say-hi{
+      text-align: center;
+      font-size: 22px;
+      color: darkgreen;
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="mask">
+    <div class="say-hi">你好啊</div>
+  </div>
+  <button class="btn1">显示表单</button>
+  <button class="btn2">显示遮罩层</button>  
+  <div class="info">
+    <div class="wrapper">
+      姓名<input type="text" placeholder="请输入您的姓名">
+      年龄<input type="text" placeholder="请输入您的年龄">
+    </div>
+    <!-- 关闭表单 -->
+    <div class="close"></div>
+  </div>
+  <!-- 遮罩层 -->
+  
+</div>
+
+<body>
+  <script>
+    const btn1 = document.querySelector('button');
+    const info = document.querySelector('.info');
+    const close = document.querySelector('.close');
+    const mask = document.querySelector('.mask');
+    const btn2 = document.querySelector('.btn2');
+    const sayHi = document.querySelector('.say-hi');
+
+    btn1.onclick = function (e){
+      console.log(e);
+      if(this.className == 'btn1'){
+        btn1.className = 'btn-active';
+        info.style.bottom = '0px';
+      }else{
+        btn1.className = 'btn1'
+      }
+    }
+    close.onclick = function (){
+      info.style.bottom = '-100px';
+    }
+
+    //点击btn2的时候显示遮罩层
+    btn2.onclick = function (){
+      mask.style.display = 'block';
+    }
+    sayHi.onclick = function (){
+      console.log('任重而道远，仁以为己任');
+      alert('fighting');
+    }
+    mask.onclick = function (){
+      this.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

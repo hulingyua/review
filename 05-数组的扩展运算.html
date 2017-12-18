@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(...[12,23,34]);
+    function sum(x,y){
+      console.log(x + y);
+    }
+    sum(...[12,13]);
+    //替代apply传入一个数组为参数
+    const arr = [22,44];
+    sum.apply(null,arr);
+    
+  </script>
+</body>
+</html>

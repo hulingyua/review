@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //数组的结构赋值
+    //结构赋值成功 
+      let arr = [12,14,32,33,44];
+      let [a,b,,c] = arr;
+      console.log(`${a} ---${b} --- ${c}`); //12---14---33
+    //结构赋值不成功的时候该变量值为undefined
+      let [d,e] = [];
+      console.log(e);   //undefined
+      let [f , g] = [12];   //undefined
+      console.log(g);
+    //不完全结构
+      let [h,,[i]] = [12,14,[22,55]];
+      console.log(h + i); //12 + 22 = 34
+
+    //当等号右边的为不可遍历的结构，则会报错
+      //具体数值、false、NaN、un、defined、null、{}
+    
+    //默认值，结构赋值允许指定默认值（只有当一个位置的值===undefined的时候默认值才会生效，===null也不会生效）
+    let [l = 12] = [undefined];
+    let [k = 13] = [null];
+    console.log(l); //12 默认值生效
+    console.log(k); //null 默认值不生效
+
+      //默认值可以引用结构赋值的其他变量，但该变量必须已经声明
+      let [m = 2 , n = m + 1] = [];
+      console.log(m + ',' + n);
+        //当变量未声明则会报错
+        // let [o = p ,p = 1] = [];
+        // console.log(o , p);  //报错
+    //对象的解构赋值
+      //对象的解构赋值和数组的解构赋值的区别
+        //1 数组解构赋值是按照次序
+        //2 对象解构赋值是无序的，变量名必须与属性名一致
+    let {name , age} = {
+      name:'zs',
+      age:15
+    }
+    console.log(name,age);
+      //当变量名和属性名不一致(内部机制，先找到同名属性，再赋给对应的变量)
+      let {name : name1} = {
+        name : 'ls'
+      }
+      console.log(name1);
+      //嵌套的解构赋值
+      let [{gender : xingbie}] = [{
+        gender : 'male'
+      },12]
+      console.log(xingbie);
+  </script>
+</body>
+</html>

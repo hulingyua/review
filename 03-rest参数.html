@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //余下的参数全部存在rest参数数组中
+    function getSum(a,b,...c){
+      console.log(c) 
+    }
+    getSum(12,13);
+    getSum(12,13,14);
+    getSum(12,13,14,15);
+    console.log([14,15].toString())
+  </script>
+</body>
+</html>
